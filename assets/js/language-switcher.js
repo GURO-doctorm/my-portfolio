@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'fr': {
             name: 'Français',
-            path: '../x-english/x-french/',
+            path: '../x-english/index-fr.html',
             flag: '🇫🇷'
         }
     };
