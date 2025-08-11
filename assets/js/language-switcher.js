@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const languages = {
         'en': {
             name: 'English',
-            path: '/x-english/',
+            path: 'https://my-portfolio-mu-virid-32.vercel.app/',
             flag: '🇺🇸'
         },
         'fr': {
