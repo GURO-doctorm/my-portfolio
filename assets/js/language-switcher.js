@@ -4,12 +4,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const languages = {
         'en': {
             name: 'English',
-            path: 'https://my-portfolio-mu-virid-32.vercel.app/',
+            path: '/',
             flag: '🇺🇸'
         },
         'fr': {
             name: 'Français',
-            path: '../x-french/',
+            path: '/x-french/',
             flag: '🇫🇷'
         }
     };
@@ -40,9 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Get current language from URL
         const currentPath = window.location.pathname;
         let currentLang = 'en'; // default
-        if (currentPath.includes('/x-arabic/')) {
-            currentLang = 'ar';
-        } else if (currentPath.includes('/x-french/')) {
+        if (currentPath.includes('/x-french/')) {
             currentLang = 'fr';
         }
 
@@ -86,12 +84,18 @@ document.addEventListener('DOMContentLoaded', function() {
         if (headerButtons) {
             const switcher = createLanguageSwitcher();
             
-            // Insert before the theme toggler
-            const themeToggler = headerButtons.querySelector('.hs-dark-mode');
-            if (themeToggler) {
-                headerButtons.insertBefore(switcher, themeToggler.parentElement);
+            // Insert before the theme toggler container
+            const themeTogglerContainer = headerButtons.querySelector('div:has(.hs-dark-mode)');
+            if (themeTogglerContainer) {
+                headerButtons.insertBefore(switcher, themeTogglerContainer);
             } else {
-                headerButtons.appendChild(switcher);
+                // Fallback: insert before the "Let's Talk" button
+                const letsTalkButton = headerButtons.querySelector('a[href*="contact.html"]');
+                if (letsTalkButton) {
+                    headerButtons.insertBefore(switcher, letsTalkButton);
+                } else {
+                    headerButtons.appendChild(switcher);
+                }
             }
 
             // Add dropdown functionality
