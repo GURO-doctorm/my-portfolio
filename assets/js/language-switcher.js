@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const languages = {
         'en': {
             name: 'English',
-            path: '/',
+            path: '/x-english/',
             flag: '🇺🇸'
         },
         'fr': {
